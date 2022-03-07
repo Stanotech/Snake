@@ -45,5 +45,8 @@ while game_on:
         print(score)
 
 
+        lkkjjg
+
+
 
 
