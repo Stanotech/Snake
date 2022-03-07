@@ -24,13 +24,13 @@ class Snake:
             for seg in range(0, len(self.segments) - 1, 1):
                 self.segments[seg].setpos(self.segments[seg + 1].xcor(), self.segments[seg + 1].ycor())
 
-        if grow:
+        if grow:        # adding one segment before head
             seg = Turtle()
             seg.penup()
             seg.shape("square")
             seg.color("white")
             seg.turtlesize(1)
-            seg.setpos(x * 21, 0)
+            seg.setpos(self.segments[len(self.segments) - 1].xcor(), self.segments[len(self.segments) - 1].ycor())
             self.segments.insert(len(self.segments) - 1, seg)
 
 
