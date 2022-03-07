@@ -25,6 +25,7 @@ def left():
 snake = Snake()
 food = Food()
 score = 0
+grow = False
 
 game_on = True
 screen.listen()
@@ -36,17 +37,13 @@ while game_on:
     screen.onkey(right, "d")
     screen.onkey(left, "a")
     screen.update()
-    snake.move()
+
+    snake.move(grow)
+    grow = False
 
     if snake.segments[len(snake.segments) - 1].pos() == food.pos():
         print("jam jam")
         food.setpos(21 * random.randint(-10, 10), 21 * random.randint(-10, 10))
         score += 1
         print(score)
-
-
-        lkkjjg
-
-
-
-
+        grow = True
