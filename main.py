@@ -10,21 +10,32 @@ screen.bgcolor("black")
 screen.title("My Snake Game")
 screen.tracer(0)
 
+
 def up():
     snake.direction = "up"
+
 
 def down():
     snake.direction = "down"
 
+
 def right():
     snake.direction = "right"
+
 
 def left():
     snake.direction = "left"
 
+
 snake = Snake()
 food = Food()
 score = 0
+
+with open("high_score.txt") as file:
+    high_score = int(file.read())
+print(high_score)
+
+
 grow = False
 
 game_on = True
@@ -45,5 +56,10 @@ while game_on:
         print("jam jam")
         food.setpos(21 * random.randint(-10, 10), 21 * random.randint(-10, 10))
         score += 1
-        print(score)
+        print(f"punktacja {score}")
         grow = True
+
+        if score > high_score:
+            high_score = score
+            with open("high_score.txt", mode="w") as file:
+                file.write(str(high_score))
